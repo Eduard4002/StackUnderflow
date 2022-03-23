@@ -9,9 +9,12 @@
 </head>
 <body>
     <div id="mainContent">
-        <div id="mainHeader">
-                <p id="title">stack<b>underflow</b></p>
-        </div>
+        <nav>
+            <p id="title">stack<b>underflow</b></p>
+        </nav>
+    <h2 id="topQuestions">Top Questions</h3>
+
+    <button class="button askButton">Ask A question</button>
     </div>
 </body>
 </html>

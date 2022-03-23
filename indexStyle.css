@@ -4,19 +4,19 @@ html,body{
     overflow:hidden;
     height: 100%;
     width:100%;
+    box-sizing: border-box;
 }
-
 #mainContent{
     overflow:hidden;
     height:100%;
     width:65%;
     border:3px dashed black;
-    position: absolute;
+    position: relative;
     left:15%;
 }
-#mainHeader{
+nav{
     width: 100%;
-    height: 5%;
+    height: 10%;
     background-color:whitesmoke;
     position:absolute;
     top:0;
@@ -24,9 +24,40 @@ html,body{
     align-items: center;
     box-shadow: 1px 1px 4px black;
     font-size: 1.5em;
+    z-index: -1;
 }
-#mainHeader #title{
+nav #title{
     position: relative;
-    left:20%
+    left:10%;
+}
+#topQuestions{
+    position: relative;
+    top:15%;
+    left:20%;
+    z-index:3;
 }
 
+.button{
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 12px;
+    color:white;
+    position: relative;
+}
+.askButton {
+    background-color: #008CBA; 
+    border: 2px solid #008CBA;
+    left:50%;
+  }
+  
+.askButton:hover {
+    background-color: #0575c0;
+    border: 2px solid #0575c0;
+}
+  
