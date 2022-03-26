@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="indexStyle.css">
-    <link rel="stylesheet" href="navStyle.css">
+    <link rel="stylesheet" href="CSS/indexStyle.css">
+    <link rel="stylesheet" href="CSS/navStyle.css">
     <title>Home</title>
 </head>
 <body>

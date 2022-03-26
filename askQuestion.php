@@ -1,3 +1,8 @@
+<?php
+    include 'db_connection.php';
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +15,19 @@
 <body>
     <main>
         <nav>
-            <p id="title">stack<b>underflow</b></p>
+           <p id="title">stack<b>underflow</b></p>
         </nav>
+
+
+        <?php
+            if(!isset($_SESSION['USER'])){
+                $conn = openConn();
+                echo "Connection opened succefully";
+                closeConn($conn);
+            }
+        ?>
     </main>
     
+
 </body>
 </html>
