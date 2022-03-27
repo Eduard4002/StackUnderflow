@@ -21,9 +21,7 @@
 
         <?php
             if(!isset($_SESSION['USER'])){
-                $conn = openConn();
-                echo "Connection opened succefully";
-                closeConn($conn);
+                echo "Not logged in";
             }
         ?>
     </main>

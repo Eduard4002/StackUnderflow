@@ -1,5 +1,7 @@
 THESE LINES YOU SHOULD INSERT INTO THE phpmyadmin THING AFTER YOU CREATED THE DATABASE, 
 JUST INSERT ALL THIS CODE AND IT SHOULD CREATE ALL THE RIGHT TABLES [I WILL BE UPDATING THIS FILE CONSTANTLY]
-||CODE STARTS HERE||
+IF YOU WILL CALL YOUR DATABASE ANYTHING ELSE THAN stackunderflow THEN CHANGE THE $db VARIABLE IN db_connection.php FILE SO IT CAN CONNECT CORRECTLY
 
-CREATE TABLE users(ID int PRIMARY KEY AUTO_INCREMENT, fName varchar(10), lName varchar(1), email varchar(20), userName varchar(20), passw varchar(30), sqID1 int, sqVAL1 varchar(20), sqID2 int, sqVAL2 varchar(20));
+<|CODE STARTS HERE|>
+
+CREATE TABLE users(ID int PRIMARY KEY AUTO_INCREMENT, fName varchar(10), lName varchar(10), email varchar(30), userName varchar(20), passw varchar(30), sqID1 int, sqVAL1 varchar(20), sqID2 int, sqVAL2 varchar(20));
