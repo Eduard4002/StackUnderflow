@@ -2,7 +2,10 @@ input[type="text"]{
     outline:none;
 }
 
-
+#mainDiv{
+    display: flex;
+    flex-direction: row;
+}
 .invalidLogin{
     border:2px solid red;
     background-color: rgba(255, 0, 0, 0.356);

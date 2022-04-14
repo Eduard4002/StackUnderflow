@@ -21,7 +21,7 @@
 
         <?php
             if(!isset($_SESSION['USER'])){
-                echo "Not logged in";
+                header('location: login.php');
             }
         ?>
     </main>

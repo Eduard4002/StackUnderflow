@@ -1,7 +1,6 @@
 <?php
     include "db_connection.php";
     function getUserID($username){
- 
         $query = mysqli_query(openConn(), "SELECT * FROM users WHERE userName = '$username'");
         return mysqli_fetch_assoc($query)['ID'] ??= '0';
     }
@@ -25,4 +24,5 @@
         $haspPassw = password_hash($password, PASSWORD_DEFAULT);
         $query = mysqli_query(openConn(), "INSERT INTO users VALUES(null, '$fName', '$lName', '$email', '$username', '$haspPassw', '$sqID1', '$sqVAL1', '$sqID2', '$sqVAL2')");
     }
+    
 ?>

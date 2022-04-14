@@ -8,10 +8,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/navStyle.css">
     <link rel="stylesheet" href="CSS/login.css">
     <title>Login/Sign Up</title>
 </head>
 <body>
+    <main>
+    <nav>
+        <p id="title">stack<b>underflow</b></p>
+    </nav>
+    <div id="mainDiv">
      <!--LOGIN-->
      <form action="" method="POST" id="logIn">
         <h1>LOGIN</h1>
@@ -19,7 +25,7 @@
             if(isset($_GET['invalid'])){
                 echo "<p class='invalidText'>Invalid login, please try again</p>";
             }
-        ?>
+        ?> 
         <label for="userName">Username: </label><p><input type="text" name="userName" <?php if(isset($_GET['invalid'])) {echo "class='invalidLogin'";}?>></p>
         <label for="password">Password: </label><p><input type="password" name="passw" <?php if(isset($_GET['invalid'])) {echo "class='invalidLogin'";}?>></p>
         <button type="submit" name="logIn" id="submitBut">Submit</button>
@@ -27,8 +33,7 @@
     <!--SIGNUP-->
     <form action="" method="POST" id="signUp">
         <h1>SIGN UP</h1>
-        <label for="firstName" required>First Name: </label><input type="text" name="firstName">
-        <label for="lastName" required>Last Name: </label><input type="text" name="lastName"><br>
+        <label for="firstName" required>Full Name: </label><input type="text" name="firstName" placeholder="First Name"><input type="text" name="lastName" placeholder="Last Name"><br>
         <label for="email" required>Email: </label><p><input type="email" name="email"></p>
         <label for="userName" required>Username: </label><p><input type="text" name="userName"></p>
         <label for="password" required>Password: </label><p><input type="password" name="passw"></p>
@@ -50,7 +55,7 @@
         <input type="text" name="SQVAL2" required><br>
         <button type="submit" name="signUp" id="submitBut">Submit</button>
     </form>
-
+        </div>
     <?php
         include "manager.php";
         if(isset($_POST['logIn'])){
@@ -72,7 +77,7 @@
                 header('location:login.php?userExists');
             }
         }
-
     ?>
+    </main>
 </body>
 </html>

@@ -5,3 +5,4 @@ IF YOU WILL CALL YOUR DATABASE ANYTHING ELSE THAN stackunderflow THEN CHANGE THE
 <|CODE STARTS HERE|>
 
 CREATE TABLE users(ID int PRIMARY KEY AUTO_INCREMENT, fName varchar(10), lName varchar(10), email varchar(30), userName varchar(20), passw varchar(30), sqID1 int, sqVAL1 varchar(20), sqID2 int, sqVAL2 varchar(20));
+CREATE TABLE question(ID int AUTO_INCREMENT, subject varchar(256),body_content TEXT, date_added DATETIME, view_count int, asked_by int );
