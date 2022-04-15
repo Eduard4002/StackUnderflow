@@ -9,7 +9,6 @@ html,body{
     position: relative;
     top:15%;
     left:15%;
-    z-index:3;
 }
 main{
     height:100%;
@@ -19,6 +18,7 @@ main{
     left:15%;
 }
 .button{
+    background-color: #008CBA; 
     padding: 14px 16px;
     text-align: center;
     text-decoration: none;
@@ -26,22 +26,16 @@ main{
     font-size: 16px;
     transition-duration: 0.4s;
     cursor: pointer;
-    z-index: 5;
     border-radius: 8px;
     color:white;
     position: relative;
+    width: auto;
+    border: 2px solid #008CBA;
 }
 .askButton {
-    background-color: #008CBA; 
-    border: 2px solid #008CBA;
     left:63%;
     top:9%;
   }
-  
-.askButton:hover {
-    background-color: #0575c0;
-    border: 2px solid #0575c0;
-}
 .questionsGrid{
     width:60%;
     height:90%;
