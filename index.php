@@ -7,8 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/indexStyle.css">
     <link rel="stylesheet" href="CSS/navStyle.css">
+    <link rel="stylesheet" href="CSS/indexStyle.css">
+    
     <script src="JS/loginSignUpButton.js"></script>
     <title>Home</title>
 </head>
@@ -32,24 +33,93 @@
             
         </nav>
         
-        <h2 id="topQuestionsTitle">Top Questions</h3>
+        <h2 id="topQuestionsTitle">Top Questions</h2>
 
         <a href="askQuestion.php"><button class="askButton">Ask A question</button></a>
-        
+
         <!--Main question div-->
         <div class="questionsGrid">
             <div class="questionsChild">
+                <div class="left-content">
+                    <p><b>20</b> Votes</p>
+                    <p><b>20</b> Views</p>
+                    <p><b>20</b> Answers</p>
+                </div>
+                <div class="right-content">
+                    <a class="mai n-link" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+                    <p class="asked-by">Asked by <b>Johnny Sins</b> on <b>20/10/2018</b></p>
+                </div>
             </div>
             <div class="questionsChild">
+            <div class="left-content">
+                    <p><b>20</b> Votes</p>
+                    <p><b>20</b> Views</p>
+                    <p><b>20</b> Answers</p>
+                </div>
+                <div class="right-content">
+                    <a class="main-link" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+                    <p class="asked-by">Asked by <b>Johnny Sins</b> on <b>20/10/2018</b></p>
+                </div>
             </div>
             <div class="questionsChild">
+            <div class="left-content">
+                    <p><b>20</b> Votes</p>
+                    <p><b>20</b> Views</p>
+                    <p><b>20</b> Answers</p>
+                </div>
+                <div class="right-content">
+                    <a class="main-link" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+                    <p class="asked-by">Asked by <b>Johnny Sins</b> on <b>20/10/2018</b></p>
+                </div>
             </div>
             <div class="questionsChild">
+                <div class="left-content">
+                        <p><b>20</b> Votes</p>
+                        <p><b>20</b> Views</p>
+                        <p><b>20</b> Answers</p>
+                </div>
+                <div class="right-content">
+                    <a class="main-link" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+                    <p class="asked-by">Asked by <b>Johnny Sins</b> on <b>20/10/2018</b></p>
+                </div>
+            </div>
+            <div class="questionsChild">
+                <div class="left-content">
+                        <p><b>20</b> Votes</p>
+                        <p><b>20</b> Views</p>
+                        <p><b>20</b> Answers</p>
+                </div>
+                <div class="right-content">
+                    <a class="main-link" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+                    <p class="asked-by">Asked by <b>Johnny Sins</b> on <b>20/10/2018</b></p>
+                </div>
+            </div>
+            <div class="questionsChild">
+                <div class="left-content">
+                        <p><b>20</b> Votes</p>
+                        <p><b>20</b> Views</p>
+                        <p><b>20</b> Answers</p>
+                </div>
+                <div class="right-content">
+                    <a class="main-link" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+                    <p class="asked-by">Asked by <b>Johnny Sins</b> on <b>20/10/2018</b></p>
+                </div>
+            </div>
+            <div class="questionsChild">
+                <div class="left-content">
+                        <p><b>20</b> Votes</p>
+                        <p><b>20</b> Views</p>
+                        <p><b>20</b> Answers</p>
+                </div>
+                <div class="right-content">
+                    <a class="main-link" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
+                    <p class="asked-by">Asked by <b>Johnny Sins</b> on <b>20/10/2018</b></p>
+                </div>
             </div>
         </div>
 
 
-
+        
     </main>
 
 
