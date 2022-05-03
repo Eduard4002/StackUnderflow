@@ -1,21 +1,15 @@
 
 #topQuestionsTitle{
     position: absolute;
-    top:10%;
+    top:15%;
     left:15%;
 }
-main{
-    min-height:100vh;
-    width:65%;
-    border:3px dashed black;
-    position: relative;
-    left:15%;
-}
+
 
 .askButton {
     position: absolute;
     right:15%;
-    top: 10%;
+    top: 15%;
 }
 .questionsGrid{
     width:60%;
@@ -24,7 +18,7 @@ main{
     display: grid;
     grid-template-rows: repeat(10, 1fr);
     row-gap: 10px;
-    margin:25% auto 5% auto;
+    margin:25% auto 20% auto;
 }
 .questionsChild{
     width: 100%;

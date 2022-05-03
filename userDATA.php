@@ -23,7 +23,7 @@
                 $_SESSION['USER'] = $userID;
                 header('location: '.$pageName);
             }else{
-                //header('location: '.$pageName.'?invalid');
+                header('location: '.$pageName.'?invalid');
             }
         }else if(isset($_POST['signUp'])){
             //check if there are not same username in the database
@@ -33,6 +33,13 @@
                 header('location:' .$pageName.'?succ');
             }else{
                 header('location: '.$pageName.'?userExists');
+            }
+        }else if(isset($_POST['postQ'])){
+            if(isset($_SESSION['USER'])){
+                addQuestion($_POST['title'],$_POST['body'],$_SESSION['USER']);
+                header('location: '.$pageName);
+            }else{
+                header('location: '.$pageName.'?notLoggedIn');
             }
         }
         if(isset($_GET['logout'])){

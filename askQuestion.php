@@ -31,8 +31,8 @@
         </nav>
         <h2 id="askQuestionTitle">Ask a question</h2>
         <div class="main-content">
-            <form action="userDATA.php" method="POST">
-                <div class="container">
+            <form action="userDATA.php" method="POST" >
+                <div class="formContainer container">
                     <label for="title"><b>Title</b></label>
                     <p>Be specific and imagine you’re asking a question to another person</p>
                     <input type="text" placeholder="Title" name="title" required>
@@ -40,10 +40,11 @@
                     <p>Include all the information someone would need to answer your question</p>
                     <textarea name="body" required placeholder="Text"></textarea>
                     <label for="tags"><b>Tags</b></label>
-                    <p>Add up to 5 tags to describe what your question is about</p>
+                    <p>Add up to 5 tags to describe what your question is about <i>(space between the tags)</i></p>
                     <input type="text" placeholder="Tags" name="tags">
+                    <input type="hidden" name="pageName" value="askQuestion.php">
                     <button type="submit" class="submit" name="postQ">Post Question</button>
-                    <button type="button" class="cancelbtn"><a href="index.php">Go Back</a></button>
+                    <button type="button" class="cancelbtn"><a href="index.php" class="formA">Go Back</a></button>
                     <button type="reset" class="cancelbtn">Reset</button>
                 </div>
 
@@ -52,6 +53,38 @@
                 
             </form>
         </div> 
+
+    
+   <footer>
+
+        <div id="newsletter">
+            <h5>Do you want to keep in check with our company?<br>Subscribe to our newspaper for free!</h5>
+            <input placeholder="Email" type="mail">
+            <button id="newsLetterButton">GO!</button>
+        </div>
+
+        <ul id="Content-store">
+        <h3>About company</h3>
+        <li><a href="#">Terms of service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Enter balance</a></li>
+        <li><a href="#">Help and customer service</a></li>
+        </ul>
+
+        <ul id="Content-Social-Media">
+        <h3>Social Media</h3>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Instagram</a></li>
+        </ul>
+
+
+        <p id="Copyright">© 2022 Auctionhome All Rights Reserved</p>
+        </footer>
+
+
     </main>
     
 
@@ -87,9 +120,6 @@
         <div id="id02" class="modal">
             <form class="modal-content animate" action="userDATA.php" method="post">
                 <div class="imgcontainer">
-                <?php
-                    
-                ?> 
                 <span onclick="closeSignUpModal()" class="close" title="Close Modal">&times;</span>
                 </div>
 
@@ -128,6 +158,6 @@
             echo "testing ";
             echo '<script type="text/JavaScript">openLoginModal();</script>';
         }
-    ?>
+        ?>
 </body>
 </html>
