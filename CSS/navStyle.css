@@ -13,16 +13,16 @@ body{
 }
 
 main{
-    height:100vh;
+    height:100%;
     width:65%;
-    border:3px dashed black;
     position: relative;
     left:15%;
+    border:none;
 }
 
 nav{
     width: 100%;
-    height: 10%;
+    height:75px;
     background-color:whitesmoke;
     position:relative;
     top:0;
@@ -40,6 +40,7 @@ nav #title{
 #navButtons{
     position: absolute;
     right:10%;
+    padding:16px;
 }
 
 
@@ -178,4 +179,83 @@ span.passw {
   .cancelbtn {
      width: 100%;
   }
+}
+@media screen and (max-width: 1920px) {
+  main{
+    min-width:100%;
+    left:0 !important;
+  }
+
+} 
+footer{
+  width:100%;
+  height:200px;
+  background-color: black;
+  box-shadow: inset 20px 30px 80px #000000,inset -20px -30px 100px #000000;
+
+
+  z-index: 5;
+}
+footer h3{color:#008CBA;}
+footer button{background-color:#0575c0; }
+
+
+#Content-store, #Content-Social-Media{
+  color:white;
+  position: absolute;
+  margin-top:2%;
+  left:35%;
+  display: block;
+
+}
+#Content-store li, #Content-Social-Media li{
+  list-style-type: none;
+  margin-top:5%;
+
+}
+#Content-store li a:hover, #Content-Social-Media li a:hover{
+  color: #0575c0;
+}
+#Content-store li a, #Content-Social-Media li a{
+  text-decoration: none;
+  color:white;
+  font-weight:normal;
+  font-size: 12px;
+}
+#newsletter{
+  position: absolute;
+  margin-top:2.5%;
+  left:10px;
+  
+}
+#newsLetterButton{
+  width:40px;
+  height:25px;
+  left:0px;
+  outline: none;
+  padding: 0 !important;
+}
+#newsletter h5{
+  color: white;
+  font-weight: bold;
+}
+#newsletter input{
+  margin-top:10px;
+  height:25px;
+  outline: none;
+}
+
+#Content-Social-Media{
+  margin-left: 15%;
+}
+
+
+#Copyright{
+  position: absolute;
+  bottom: 0%;
+  left:10px;
+  bottom: 3%;
+  color:white;
+  font-size: 0.7rem;
+  font-weight: bold;
 }

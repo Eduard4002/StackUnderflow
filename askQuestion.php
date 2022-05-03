@@ -43,7 +43,7 @@
                     <p>Add up to 5 tags to describe what your question is about</p>
                     <input type="text" placeholder="Tags" name="tags">
                     <button type="submit" class="submit" name="postQ">Post Question</button>
-                    <button type="button" href="index.php" class="cancelbtn">Go Back</button>
+                    <button type="button" class="cancelbtn"><a href="index.php">Go Back</a></button>
                     <button type="reset" class="cancelbtn">Reset</button>
                 </div>
 
