@@ -255,10 +255,11 @@ footer button{background-color:#0575c0; }
      width: 100%;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
   main{
     min-width:100%;
     left:0 !important;
+    border:none;
   }
 
 } 

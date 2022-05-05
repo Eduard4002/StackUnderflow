@@ -32,5 +32,15 @@
         $query = mysqli_query(openConn(), "SELECT * FROM question ORDER BY view_count DESC LIMIT 10");
         return $query;
     }
+    function getQuestionByID($ID){
+        $query = mysqli_query(openConn(), "SELECT * FROM question WHERE ID = '$ID'");
+        return $query;
+    }
+    function increaseViewCount($questionID){
+        $row = mysqli_fetch_assoc(getQuestionByID($questionID));
+        $newCount = $row['view_count'] += 1;
+        $query = mysqli_query(openConn(), "UPDATE question SET view_count = '$newCount' WHERE ID = '$questionID'");
+        
+    }
     
 ?>

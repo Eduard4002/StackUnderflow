@@ -1,6 +1,3 @@
-<?php session_start(); ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/navStyle.css">
-    <link rel="stylesheet" href="CSS/indexStyle.css">
-    
     <script src="JS/loginSignUpButton.js"></script>
-    <title>Home</title>
+    <title>Question</title>
 </head>
 <body>
-    
     <main>
         <nav>
             <p id="title">stack<b>underflow</b></p>
@@ -29,45 +23,25 @@
                     }
                 ?>
             </div>
-            
-            
         </nav>
-        
-        <h2 id="topQuestionsTitle">Top Questions</h2>
 
-        <a href="askQuestion.php"><button class="askButton">Ask A question</button></a>
+        <div class="formContainer container">
+                    <label for="title"><b>Title</b></label>
+                    <p>Be specific and imagine you’re asking a question to another person</p>
+                    <input type="text" placeholder="Title" name="title" required>
+                    <label for="body"><b>Body</b></label>
+                    <p>Include all the information someone would need to answer your question</p>
+                    <textarea name="body" required placeholder="Text"></textarea>
+                    <label for="tags"><b>Tags</b></label>
+                    <p>Add up to 5 tags to describe what your question is about <i>(space between the tags)</i></p>
+                    <input type="text" placeholder="Tags" name="tags">
+                    <input type="hidden" name="pageName" value="askQuestion.php">
+                    <button type="submit" class="submit" name="postQ">Post Question</button>
+                    <button type="button" class="cancelbtn"><a href="index.php" class="formA">Go Back</a></button>
+                    <button type="reset" class="cancelbtn">Reset</button>
+                </div>
 
-        <!--Main question div-->
-        <div class="questionsGrid">
-                <?php
-                    include "manager.php";
-                    $query = getQuestions();
-                    if($query != null){
-                        while($row = mysqli_fetch_assoc($query)){
-                            $title = $row['subject'];
-                            $body = $row['body_content'];
-                            $views = $row['view_count'];
-                            $date = $row['date_added'];
-                            $askedBy = getUserByID($row['asked_by']);
-                            $questionID = $row['ID'];
-                            echo
-                            "<div class='questionsChild'>
-                                <div class='left-content'>
-                                    <p><b>20</b> Votes</p>
-                                    <p><b>$views</b> Views</p>
-                                    <p><b>20</b> Answers</p>
-                                </div>
-                                <div class='right-content'>
-                                    <a class='main-link' href='question.php?ID=$questionID'>$title.</a>
-                                    <p class='asked-by'>Asked by <b>$askedBy</b> on <b>20/10/2018</b></p>
-                                </div>
-                            </div>";
-                        }
-                    }
-                    
-                ?>
-        </div>
-   <footer>
+    <footer>
 
         <div id="newsletter">
             <h5>Do you want to keep in check with our company?<br>Subscribe to our newspaper for free!</h5>
@@ -171,6 +145,39 @@
         <?php
         if(isset($_GET['invalid'])){
             echo '<script type="text/JavaScript">openLoginModal();</script>';
+        }
+    ?>
+    <?php
+        include "manager.php";
+        if(isset($_GET['ID'])){
+            $ID = $_GET['ID'];
+            //increase the view count
+            $query = getQuestionByID($ID);
+            $row = mysqli_fetch_assoc($query);
+            if($row != null){
+                increaseViewCount($ID);
+                //get all the necessary information
+                $title = $row['subject'];
+                $body = $row['body_content'];
+                $views = $row['view_count'];
+                $date = $row['date_added'];
+                $askedBy = getUserByID($row['asked_by']);
+                //for testing purposes
+                echo
+                "<div class='questionsChild'>
+                    <div class='left-content'>
+                        <p><b>20</b> Votes</p>
+                        <p><b>$views</b> Views</p>
+                        <p><b>20</b> Answers</p>
+                    </div>
+                    <div class='right-content'>
+                        <a class='main-link' href='#'>.</a>
+                    </div>
+                </div>";
+            }else{
+                echo "Bitches not found :(";
+            }
+            
         }
     ?>
 </body>
