@@ -1,0 +1,43 @@
+.main-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% 7.5%; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    
+    width: 60%; /* Could be more or less, depending on screen size */
+    display: inline-block;
+
+    border-radius: 10px;
+    position: relative;
+}
+.formContainer{
+    background-color: #fefefe;
+    margin: 5% auto 15% 7.5%; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    height: fit-content;
+    border-radius: 10px;
+    position: relative;
+}
+p,label, h1{
+    padding:8px;
+  
+}
+textarea{
+    resize: none;
+    height: 200px;
+    font-family: inherit;
+    font-size: inherit;
+}
+.invalidID{
+    margin:auto;
+
+}
+.formA{
+    text-decoration: none;
+    color:white;
+}
+.rightContent{
+    height: fit-content;
+    position:absolute;
+    left:30%;
+}

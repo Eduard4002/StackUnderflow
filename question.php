@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/navStyle.css">
+    <link rel="stylesheet" href="CSS/viewQuestion.css">
     <script src="JS/loginSignUpButton.js"></script>
     <title>Question</title>
 </head>
@@ -25,22 +26,48 @@
             </div>
         </nav>
 
-        <div class="formContainer container">
-                    <label for="title"><b>Title</b></label>
-                    <p>Be specific and imagine you’re asking a question to another person</p>
-                    <input type="text" placeholder="Title" name="title" required>
-                    <label for="body"><b>Body</b></label>
-                    <p>Include all the information someone would need to answer your question</p>
+       
+            <div class="formContainer ">
+            <?php
+                include "manager.php";
+                if(isset($_GET['ID'])){
+                    $ID = $_GET['ID'];
+                    //increase the view count
+                    $query = getQuestionByID($ID);
+                    $row = mysqli_fetch_assoc($query);
+                    if($row != null){
+                        //increaseViewCount($ID);
+                        //get all the necessary information
+                        $title = $row['subject'];
+                        $body = $row['body_content'];
+                        $views = $row['view_count'];
+                        $date = $row['date_added'];
+                        $askedBy = getUserByID($row['asked_by']);
+                        //for testing purposes
+                        echo "
+                        <div class ='rightContent'><h1>$title</h1>
+                        <p>Asked <b>$date</b> Viewed <b>$views</b> times.</p>
+                        <p>$body</p></div>";
+                        
+                    }else{
+                        echo "<h2 class='invalidID'>Ops, how did you even manage to get here? We weren't able to find this question you were looking!<br> Please try again later</h2>
+                        <button><a href = 'index.php' class='formA'>Go Back</a></button>";
+                    }
+                    
+                }
+            ?>
+            </div>
+            
+            <div class="formContainer">
+                <p><b>Your Answer</b></p>
+                
+                <form action="userDATA.php" method="POST">
                     <textarea name="body" required placeholder="Text"></textarea>
-                    <label for="tags"><b>Tags</b></label>
-                    <p>Add up to 5 tags to describe what your question is about <i>(space between the tags)</i></p>
-                    <input type="text" placeholder="Tags" name="tags">
-                    <input type="hidden" name="pageName" value="askQuestion.php">
-                    <button type="submit" class="submit" name="postQ">Post Question</button>
-                    <button type="button" class="cancelbtn"><a href="index.php" class="formA">Go Back</a></button>
-                    <button type="reset" class="cancelbtn">Reset</button>
-                </div>
+                    <input type="hidden" name="pageName" value="question.php">
+                    <button type="submit" name="postA">Post Your Answer</button>
 
+                </form>
+            </div>
     <footer>
 
         <div id="newsletter">
@@ -147,38 +174,6 @@
             echo '<script type="text/JavaScript">openLoginModal();</script>';
         }
     ?>
-    <?php
-        include "manager.php";
-        if(isset($_GET['ID'])){
-            $ID = $_GET['ID'];
-            //increase the view count
-            $query = getQuestionByID($ID);
-            $row = mysqli_fetch_assoc($query);
-            if($row != null){
-                increaseViewCount($ID);
-                //get all the necessary information
-                $title = $row['subject'];
-                $body = $row['body_content'];
-                $views = $row['view_count'];
-                $date = $row['date_added'];
-                $askedBy = getUserByID($row['asked_by']);
-                //for testing purposes
-                echo
-                "<div class='questionsChild'>
-                    <div class='left-content'>
-                        <p><b>20</b> Votes</p>
-                        <p><b>$views</b> Views</p>
-                        <p><b>20</b> Answers</p>
-                    </div>
-                    <div class='right-content'>
-                        <a class='main-link' href='#'>.</a>
-                    </div>
-                </div>";
-            }else{
-                echo "Bitches not found :(";
-            }
-            
-        }
-    ?>
+    
 </body>
 </html>
