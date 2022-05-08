@@ -15,34 +15,83 @@
     <?php
         include "manager.php";
         $pageName = $_POST['pageName'];
-
+        //user wants to login
         if(isset($_POST['logIn'])){
             $userID = getUserID($_POST['userName']);
             //there is currently a user in the database with that username AND the user entered correct credentials
-            if($userID != '0' && successfullLogin($_POST['userName'], $_POST['passw'])){
+            if($userID != 0 && successfullLogin($_POST['userName'], $_POST['passw'])){
                 $_SESSION['USER'] = $userID;
                 header('location: '.$pageName);
             }else{
-                header('location: '.$pageName.'?invalid');
-            }
+               header('location: '.$pageName.'?invalid');
+            }   
+        //user wants to sign up
         }else if(isset($_POST['signUp'])){
             //check if there are not same username in the database
             if(getUserID($_POST['userName']) == '0'){
+                //add the user to the database
                 addNewUser($_POST['firstName'],$_POST['lastName'],$_POST['email'],$_POST['userName'],$_POST['passw'],$_POST['SQ1'],$_POST['SQVAL1'],$_POST['SQ2'],$_POST['SQVAL2']);
                 $_SESSION['USER'] = getUserID($_POST['userName']);
                 header('location:' .$pageName.'?succ');
             }else{
+                //there is already a user with that username
                 header('location: '.$pageName.'?userExists');
             }
+        //user wants to post a question
         }else if(isset($_POST['postQ'])){
+            //check if the user is logged in
             if(isset($_SESSION['USER'])){
+                //add the question to the database
                 addQuestion($_POST['title'],$_POST['body'],$_SESSION['USER']);
                 header('location: '.$pageName);
             }else{
+                //the user is not logged in
                 header('location: '.$pageName.'?notLoggedIn');
             }
+        //user wants to post a reply
+        }else if(isset($_POST['postA'])){
+            //check if the user is logged in
+            if(isset($_SESSION['USER'])){
+                //add the reply to the database
+                addReply($_POST['body'],$_POST['questionID'],$_SESSION['USER']);
+                header('location: '.$pageName.'?ID='.$_POST['questionID']);
+            }else{
+                //the user is not logged in
+                header('location: '.$pageName.'?notLoggedIn');
+            }
+        //user who posted the question wants to mark a reply as answer
+        }else if(isset($_POST['markA'])){
+            //check if the user is logged in
+            if(isset($_SESSION['USER'])){
+                //mark the reply as the answer
+                markAnswer($_GET['ansID']);
+                header('location: '.$pageName.'?ID='.$_POST['questionID']);
+            }else{
+                //the user is not logged in
+                header('location: '.$pageName.'?notLoggedIn');
+            }
+        //user who posted a reply wants to delete it
+        }else if(isset($_POST['delRep'])){
+            //delete the reply
+            deleteReply($_GET['repID']);
+            header('location: '.$pageName.'?ID='.$_POST['questionID']);
+        //user wants to change his/her password
+        }else if(isset($_POST['changPassw'])){
+            $passw = $_POST['passw'];
+            $confPassw = $_POST['confPassw'];
+            if($passw != $confPassw){
+                header('location: '.$pageName.'?passwNotMatch');
+            }
+            if(checkSecQuestions($_POST['userName'],$_POST['SQ1'],$_POST['SQVAL1'],$_POST['SQ2'],$_POST['SQVAL2'])){
+                updatePassword($_POST['userName'],$_POST['passw']);
+                header('location: '.$pageName.'?passwChanged');
+            }else{
+                header('location: '.$pageName.'?wrongSecQ');
+            }
         }
+        //user wants to logout
         if(isset($_GET['logout'])){
+            //logout the user
             session_destroy();
             header('location: index.php');
         }  

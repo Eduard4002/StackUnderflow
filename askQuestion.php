@@ -15,20 +15,7 @@
 </head>
 <body>
     <main>
-        <nav>
-           <p id="title">stack<b>underflow</b></p>
-           <div id="navButtons">
-                <?php
-                    if(isset($_SESSION['USER'])){
-                        echo '<button onclick="logout()">LogOut</button>';
-                    }else{
-                        echo '
-                        <button onclick="openLoginModal()">Login</button>
-                        <button onclick="openSignUpModal()">Sign Up</button>';
-                    }
-                ?>
-            </div>
-        </nav>
+        <?php include "Extra/nav.php";?>
         <h2 id="askQuestionTitle">Ask a question</h2>
         <div class="main-content">
             <form action="userDATA.php" method="POST" >
@@ -39,9 +26,6 @@
                     <label for="body"><b>Body</b></label>
                     <p>Include all the information someone would need to answer your question</p>
                     <textarea name="body" required placeholder="Text"></textarea>
-                    <label for="tags"><b>Tags</b></label>
-                    <p>Add up to 5 tags to describe what your question is about <i>(space between the tags)</i></p>
-                    <input type="text" placeholder="Tags" name="tags">
                     <input type="hidden" name="pageName" value="askQuestion.php">
                     <button type="submit" class="submit" name="postQ">Post Question</button>
                     <button type="button" class="cancelbtn"><a href="index.php" class="formA">Go Back</a></button>
@@ -53,111 +37,25 @@
                 
             </form>
         </div> 
-
-    
-   <footer>
-
-        <div id="newsletter">
-            <h5>Do you want to keep in check with our company?<br>Subscribe to our newspaper for free!</h5>
-            <input placeholder="Email" type="mail">
-            <button id="newsLetterButton">GO!</button>
+        <div class="info container">
+            <p><i>The community is here to help you with specific coding, algorithm, or language problems. <br>Avoid asking opinion-based questions.</i></p>
+            <p>1. <b>Summarize the problem</b><br>
+                Include details about your goal.<br>
+                Describe expected and actual results.<br>
+                Include any error messages.</p>
+            <p><b>2.Describe what you’ve tried</b><br>
+                Show what you’ve tried and tell us what you found (on this site or elsewhere) and why it didn’t meet your needs. ¨
+                You can get better answers when you provide research.</p>
+            <p><b>3.Show some code</b><br>
+                When appropriate, share the minimum amount of code others need to reproduce your problem</p>
         </div>
-
-        <ul id="Content-store">
-        <h3>About company</h3>
-        <li><a href="#">Terms of service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Enter balance</a></li>
-        <li><a href="#">Help and customer service</a></li>
-        </ul>
-
-        <ul id="Content-Social-Media">
-        <h3>Social Media</h3>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">Instagram</a></li>
-        </ul>
-
-
-        <p id="Copyright">© 2022 Auctionhome All Rights Reserved</p>
-        </footer>
-
-
+    <?php include "Extra/footer.php";?>
     </main>
-    
-
-    <!---LOGIN AND SIGNUP MODAL HERE-->
-    
-    <div id="id01" class="modal">
-            <form class="modal-content animate" action="userDATA.php" method="POST">
-                <div class="imgcontainer">
-                <?php
-                    if(isset($_GET['invalid'])){
-                        echo "<p class='invalidText'>Invalid login, please try again</p>";
-                    }
-                ?> 
-                <span onclick="closeLoginModal()" class="close" title="Close Modal">&times;</span>
-                </div>
-
-                <div class="container">
-                    <label for="userName"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="userName" required>
-                    <label for="passw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="passw" required>
-                    <button type="submit" class="submit" name="logIn">Login</button>
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="closeLoginModal()" class="cancelbtn">Cancel</button>
-                    <span class="passw">Forgot <a href="#">password?</a></span>
-                </div>
-                <input type="hidden" name="pageName" value="index.php">
-            </form>
-        </div> 
-        
-        <div id="id02" class="modal">
-            <form class="modal-content animate" action="userDATA.php" method="post">
-                <div class="imgcontainer">
-                <span onclick="closeSignUpModal()" class="close" title="Close Modal">&times;</span>
-                </div>
-
-                <div class="container">
-                <label for="firstName" required>Full Name: </label><input type="text" name="firstName" placeholder="First Name"><input type="text" name="lastName" placeholder="Last Name"><br>
-                <label for="email" required>Email: </label><p><input type="email" name="email"></p>
-                <label for="userName" required>Username: </label><p><input type="text" name="userName" placeholder="Username"></p>
-                <label for="password" required>Password: </label><p><input type="password" name="passw" placeholder="Password"></p>
-                <label for="SQ1" required>Security Question 1: </label>
-                <select name="SQ1">
-                    <option value="1" selected>What was your favorite subject in high school?</option>
-                    <option value="2">What is the name of your first pet?</option>
-                    <option value="3">What is the name of the town where you were born?</option>
-                    <option value="4">What was the first company that you worked for?</option>
-                </select>
-                <input type="text" name="SQVAL1" required placeholder="Answer"><br>
-                <label for="SQ2">Security Question 2: </label>
-                <select name="SQ2" required>
-                    <option value="1">What was your favorite subject in high school?</option>
-                    <option value="2" selected>What is the name of your first pet?</option>
-                    <option value="3">What is the name of the town where you were born?</option>
-                    <option value="4">What was the first company that you worked for?</option>
-                </select>
-                <input type="text" name="SQVAL2" required placeholder="Answer"><br>
-                <button type="submit" class="submit" name="signUp">Sign up</button>
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="closeSignUpModal()" class="cancelbtn">Cancel</button>
-                </div>
-                <input type="hidden" name="pageName" value="index.php">
-            </form>
-        </div>
-        <?php
+    <?php 
+        include "Extra/modal.php";
         if(isset($_GET['invalid'])){
-            echo "testing ";
             echo '<script type="text/JavaScript">openLoginModal();</script>';
         }
-        ?>
+    ?>
 </body>
 </html>

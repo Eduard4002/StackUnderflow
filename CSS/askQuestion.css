@@ -1,6 +1,6 @@
 #askQuestionTitle{
     position: relative;
-    top:3%;
+    top:5%;
     left:10%;
 }
 .main-content {
@@ -8,7 +8,7 @@
     margin: 5% auto 15% 7.5%; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 60%; /* Could be more or less, depending on screen size */
-    height:75%;
+    height: 525px;
     border-radius: 10px;
     position: relative;
 }
@@ -19,14 +19,25 @@
 }
 textarea{
     resize: none;
-    
+    height: 200px;
     font-family: inherit;
    font-size: inherit;
 }
 .container p{
     font-size: 0.8rem;
+    padding:4px;
 }
 .formA{
     text-decoration: none;
     color:white;
+}
+.info{
+    background-color: #fefefe;
+    border: 1px solid #888;
+    width: 25%; /* Could be more or less, depending on screen size */
+    height: 420px;
+    border-radius: 10px;
+    position: absolute;
+    right:2.5%;
+    top:calc(7.5vh + 100px);
 }

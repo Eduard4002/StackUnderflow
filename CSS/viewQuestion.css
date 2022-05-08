@@ -1,26 +1,24 @@
-.main-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% 7.5%; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    
-    width: 60%; /* Could be more or less, depending on screen size */
-    display: inline-block;
 
-    border-radius: 10px;
-    position: relative;
-}
 .formContainer{
-    background-color: #fefefe;
-    margin: 5% auto 15% 7.5%; /* 5% from the top, 15% from the bottom and centered */
+    background-color: #f3f3f3;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     height: fit-content;
     border-radius: 10px;
     position: relative;
 }
-p,label, h1{
+.replyContainer{
+    margin:1% auto;
+}
+p,label, h1, h2{
     padding:8px;
   
+}
+.replyTitle{
+    position: relative;
+    left:10%;
+    top:0;
 }
 textarea{
     resize: none;
@@ -36,8 +34,36 @@ textarea{
     text-decoration: none;
     color:white;
 }
-.rightContent{
-    height: fit-content;
-    position:absolute;
-    left:30%;
+
+.up-content{
+    width:95%;
+    height:100%;
+    position: relative;
+
+}
+.up-content p{
+    position: relative;
+    margin:4px auto;
+    
+
+    font-size: 0.9em;
+}
+.down-content, .postAns{
+    margin: 12px;
+    max-width: 95%;
+    position: relative;
+}
+.answer{
+    color:green;
+
+}
+.deleteReply{
+    background-color:red !important;
+    position: absolute;
+    right:0;
+    top:0;
+}
+.deleteReply a{
+    text-decoration: none;
+    color:white
 }
