@@ -1,6 +1,4 @@
 <?php session_start(); ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,20 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/navStyle.css">
     <link rel="stylesheet" href="CSS/indexStyle.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$(".default_option").click(function(){
-			  $(".dropdown ul").addClass("active");
-			});
-
-			$(".dropdown ul li").click(function(){
-			  var text = $(this).text();
-			  $(".default_option").text(text);
-			  $(".dropdown ul").removeClass("active");
-			});
-		});
-	</script>
     <script src="JS/loginSignUpButton.js"></script>
     <title>Home</title>
 </head>
@@ -70,9 +54,18 @@
     </main>       
         <?php 
         include "Extra/modal.php";
-            if(isset($_GET['invalid'])){
+            //for all the errors from the userDATA.php
+            if(isset($_GET['invalidLog'])){
                 echo '<script type="text/JavaScript">openLoginModal();</script>';
-        }
+            }else if(isset($_GET['notLoggedIn'])){
+                echo '<script type="text/JavaScript">openLoginModal();</script>';
+            }else if(isset($_GET['passwNotMatch'])){
+                echo '<script type="text/JavaScript">openChangPassw();</script>';
+            }else if(isset($_GET['wrongSecQ'])){
+                echo '<script type="text/JavaScript">openChangPassw();</script>';
+            }else if(isset($_GET['passwChanged'])){
+                echo '<script type="text/JavaScript">openChangPassw();</script>';
+            }
         ?>
 </body>
 </html>

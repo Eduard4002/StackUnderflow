@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="CSS/navStyle.css">
     <link rel="stylesheet" href="CSS/viewQuestion.css">
     <script src="JS/loginSignUpButton.js"></script>
-    <script src="https://kit.fontawesome.com/39ac97030e.js" crossorigin="anonymous"></script>
     <title>Question</title>
 </head>
 <body>
@@ -123,10 +122,20 @@
         ?>
     </main>
         <?php 
-        if(isset($_GET['invalid'])){
-            echo '<script type="text/JavaScript">openLoginModal();</script>';
-        }
         include "Extra/modal.php";
+        //for all the errors from the userDATA.php
+        if(isset($_GET['invalidLog'])){
+            echo '<script type="text/JavaScript">openLoginModal();</script>';
+        }else if(isset($_GET['notLoggedIn'])){
+            echo '<script type="text/JavaScript">openLoginModal();</script>';
+        }else if(isset($_GET['passwNotMatch'])){
+            echo '<script type="text/JavaScript">openChangPassw();</script>';
+        }else if(isset($_GET['wrongSecQ'])){
+            echo '<script type="text/JavaScript">openChangPassw();</script>';
+        }else if(isset($_GET['passwChanged'])){
+            echo '<script type="text/JavaScript">openChangPassw();</script>';
+        }
+        
         ?>
     
 </body>

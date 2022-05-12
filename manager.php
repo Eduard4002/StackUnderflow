@@ -18,11 +18,16 @@
     //checks if the user logged in correctly
     function successfullLogin($username, $password){
         $query = mysqli_fetch_assoc(mysqli_query(openConn(), "SELECT * FROM users WHERE userName = '$username'"));
-        if(password_verify($password, $query['passw'])){
-            return true;
+        if($query != null){
+            if(password_verify($password, $query['passw'])){
+                return true;
+            }else{
+                return false;
+            }
         }else{
             return false;
         }
+        
     }
     //adds a new user to the database
     function addNewUser($fName, $lName, $email, $username, $password, $sqID1, $sqVAL1, $sqID2, $sqVAL2){
@@ -115,6 +120,10 @@
             $user_ID = $query['asked_by'];
             $query = mysqli_query(openConn(), "INSERT INTO inbox VALUES(null, '$user_ID', '$action', '$values[0]')");
         }   
+    }
+    function getQuestionsByTitle($title){
+        $query = mysqli_query(openConn(), "SELECT * FROM question WHERE subject LIKE '%$title%'");
+        return $query;
     }
     
 ?>

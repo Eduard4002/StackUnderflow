@@ -33,6 +33,12 @@
     position: relative;
 
 }
+.searchGrid{
+    width:60%;
+    height:100px;
+    margin:20% auto 10% auto;
+    position: relative;
+}
 .left-content p{
     position: relative;
     margin:12px;

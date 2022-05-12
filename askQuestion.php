@@ -53,8 +53,17 @@
     </main>
     <?php 
         include "Extra/modal.php";
-        if(isset($_GET['invalid'])){
+        //for all the errors from the userDATA.php
+        if(isset($_GET['invalidLog'])){
             echo '<script type="text/JavaScript">openLoginModal();</script>';
+        }else if(isset($_GET['notLoggedIn'])){
+            echo '<script type="text/JavaScript">openLoginModal();</script>';
+        }else if(isset($_GET['passwNotMatch'])){
+            echo '<script type="text/JavaScript">openChangPassw();</script>';
+        }else if(isset($_GET['wrongSecQ'])){
+            echo '<script type="text/JavaScript">openChangPassw();</script>';
+        }else if(isset($_GET['passwChanged'])){
+            echo '<script type="text/JavaScript">openChangPassw();</script>';
         }
     ?>
 </body>

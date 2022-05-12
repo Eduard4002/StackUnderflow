@@ -3,8 +3,10 @@
             <form class="modal-content animate" action="userDATA.php" method="POST">
                 <div class="imgcontainer">
                 <?php
-                    if(isset($_GET['invalid'])){
+                    if(isset($_GET['invalidLog'])){
                         echo "<p class='invalidText'>Invalid login, please try again</p>";
+                    }else if(isset($_GET['notLoggedIn'])){
+                        echo "<p class='invalidText'>You are not logged in!</p>";
                     }
                 ?> 
                 <span onclick="closeLoginModal()" class="close" title="Close Modal">&times;</span>
@@ -111,6 +113,15 @@
         <div id="id04" class="modal">
             <form class="modal-content animate" action="userDATA.php" method="post">
                 <div class="imgcontainer">
+                    <?php
+                        if(isset($_GET['passwNotMatch'])){
+                            echo "<p class='invalidText'>Passwords do not match</p>";
+                        }else if(isset($_GET['wrongSecQ'])){
+                            echo "<p class='invalidText'>Wrong security question answer</p>";
+                        }else if(isset($_GET['passwChanged'])){
+                            echo "<p class='markedA'>Password changed successfully, you can now login!</p>";
+                        }
+                    ?>
                 <span onclick="closeChangPassw()" class="close" title="Close Modal">&times;</span>
                 </div>
 
