@@ -17,15 +17,13 @@
         $pageName = $_POST['pageName'];
         //user wants to login
         if(isset($_POST['logIn'])){
-            /*
+        
             //getUserID by username
             $userID = getUserID($_POST['userName']);
             //check if user exists
-            if($userID == 0){
-                header('location: '.$pageName.'?noUser');
-            }*/
+            
             //check if password and username match
-            if((successfullLogin($_POST['userName'], $_POST['passw']))){
+            if(successfullLogin($_POST['userName'], $_POST['passw']) && $userID != 0){
                 //there is currently a user in the database with that username AND the user entered correct credentials
                 $_SESSION['USER'] = getUserID($_POST['userName']);
                 header('location: '.$pageName);

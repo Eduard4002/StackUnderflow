@@ -3,7 +3,7 @@
     //gets user's id from the username
     function getUserID($username){
         $query = mysqli_query(openConn(), "SELECT * FROM users WHERE userName = '$username'");
-        if(mysqli_num_rows($query) > 0){
+        if(mysqli_num_rows($query) == 1){
             $row = mysqli_fetch_assoc($query);
             return $row['ID'];
         }else{
@@ -18,12 +18,9 @@
     //checks if the user logged in correctly
     function successfullLogin($username, $password){
         $query = mysqli_fetch_assoc(mysqli_query(openConn(), "SELECT * FROM users WHERE userName = '$username'"));
-        if($query != null){
-            if(password_verify($password, $query['passw'])){
-                return true;
-            }else{
-                return false;
-            }
+                
+        if(password_verify($password, $query['passw'])){
+            return true;
         }else{
             return false;
         }
