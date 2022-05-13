@@ -16,7 +16,7 @@
                     <label for="userName"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="userName" required>
                     <label for="passw"><b>Password</b></label>
-                    <input type="text" placeholder="Enter Password" name="passw" required>
+                    <input type="passw" placeholder="Enter Password" name="passw" required>
                     <button type="submit" class="submit" name="logIn">Login</button>
                 </div>
 
