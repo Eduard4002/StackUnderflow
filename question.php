@@ -21,7 +21,7 @@
                     //increase the view count
                     $row = getQuestionByID($ID);
                     if($row != null){
-                        //increaseViewCount($ID);
+                        increaseViewCount($ID);
                         //get all the necessary information
                         $title = $row['subject'];
                         $body = $row['body_content'];
