@@ -62,7 +62,7 @@
     }
     //increase view count by 1 for the question
     function increaseViewCount($questionID){
-        $row = mysqli_fetch_assoc(getQuestionByID($questionID));
+        $row = getQuestionByID($questionID);
         $newCount = $row['view_count'] += 1;
         $query = mysqli_query(openConn(), "UPDATE question SET view_count = '$newCount' WHERE ID = '$questionID'");
     }
