@@ -16,7 +16,7 @@
                     <label for="userName"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="userName" required>
                     <label for="passw"><b>Password</b></label>
-                    <input type="passw" placeholder="Enter Password" name="passw" required>
+                    <input type="password" placeholder="Enter Password" name="passw" required>
                     <button type="submit" class="submit" name="logIn">Login</button>
                 </div>
 
@@ -85,7 +85,7 @@
                                 $qTitle = $question['subject'];
                                 $qAuthor = getUserByID($question['asked_by']);
                                 echo "<div class='inboxContainer'>
-                                        <h3 class='markedA'>Your question got marked as a answer!!!</h3>
+                                        <h3 class='markedA'>Your reply got marked as a answer!!!</h3>
                                         <h4 class='qTitle'><a href='question.php?ID=";echo"$q_ID"; echo "'>$qTitle</a></h4>
                                         <h5 class='qAuthor'>Asked by: $qAuthor</h5>
                                     </div>";
